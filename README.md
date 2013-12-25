@@ -9,6 +9,7 @@ All files given on http://paste.laravel.com has been put into its respective fil
 ## Pre-configuration for DO
 
 + `yum install nano`
++ `yum install wget`
 + [Install git](https://www.digitalocean.com/community/articles/how-to-install-git-on-a-centos-6-4-vps)
 
 ## STEP 1: update to latest CentOS version (for DO refer [here](https://www.digitalocean.com/community/articles/initial-server-setup-with-centos-6).)
