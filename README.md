@@ -33,12 +33,16 @@ add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname
 * `$ yum install yum-priorities`
 
 
-### STEP 3: install mysql, nginx, php-fpm, memcached
-* __Install mysql__
-* yum install mysql mysql-server
-* chkconfig --levels 235 mysqld on
-* service mysqld start
-* __Check mysqld server in running__
+## STEP 3: install mysql, nginx, php-fpm, memcached
+####Install mysql
+
+```
+$ yum install mysql mysql-server
+$ chkconfig --levels 235 mysqld on
+$ service mysqld start
+```
+ 
+####Check mysqld server in running
 * netstat -tap | grep mysql
 * __Run secure installation (to set password to root)__
 * mysql_secure_installation
@@ -190,10 +194,3 @@ add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname
 * [Installing Nginx with PHP5 and PHP-FPM and MySQL support on Centos 6.4](http://www.howtoforge.com/installing-nginx-with-php5-and-php-fpm-and-mysql-support-on-centos-6.4)
 * [How To Create A New User & Grant Permissions in MySQL](https://www.digitalocean.com/community/articles/how-to-create-a-new-user-and-grant-permissions-in-mysql)
 * [Securing Your Server](https://library.linode.com/securing-your-server)
-
-
-
-
-
-
-
