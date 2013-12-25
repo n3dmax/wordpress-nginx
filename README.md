@@ -148,31 +148,40 @@ $ service php-fpm restart
 $ service memcached restart
 ```
 
-### STEP 6: install FTP (vsftpd)
-* yum install vsftpd
-* nano /etc/vsftpd/vsftpd.conf
-* > anonymous_enable=NO
-* > chroot_local_user=YES
-* add => user_config_dir=/etc/vsftpd/vsftpd_user_conf
-* add => use_localtime=YES
-* __Save__
-* mkdir /etc/vsftpd/vsftpd_user_conf
-* nano /etc/vsftpd/vsftpd_user_conf/<username>
-* > dirlist_enable=YES
-* > download_enable=YES
-* > local_root=/srv/www/<website>
-* > write_enable=YES
-* __Save__
-* service vsftpd restart
+## (Skipping) STEP 6: install FTP (vsftpd)
+```
+$ yum install vsftpd
+$ nano /etc/vsftpd/vsftpd.conf
+.. anonymous_enable=NO
+.. chroot_local_user=YES
+.. add => user_config_dir=/etc/vsftpd/vsftpd_user_conf
+.. add => use_localtime=YES
+```
+#### Save
+```
+$ mkdir /etc/vsftpd/vsftpd_user_conf
+$ nano /etc/vsftpd/vsftpd_user_conf/<username>
+.. dirlist_enable=YES
+.. download_enable=YES
+.. local_root=/srv/www/<website>
+.. write_enable=YES
+```
+#### Save
+`$ service vsftpd restart`
 
-### STEP 7: install phpMyAdmin
-* yum install phpmyadmin
-* __Now, create new mysql user since root has been denied__
-* mysql -u root -p
-* CREATE USER ‘\<username\>'@'localhost' IDENTIFIED BY ‘\<password\>’;
-* GRANT ALL PRIVILEGES ON * . * TO ‘\<username\>'@'localhost’;
-* FLUSH PRIVILEGES;
-* exit
+## STEP 7: install phpMyAdmin
+`$ yum install phpmyadmin`
+#### Now, create new mysql user since root has been denied. Alternatively, refer [here](https://www.digitalocean.com/community/articles/how-to-install-wordpress-with-nginx-on-ubuntu-12-04).
+
+> Notice all sql queries must end with `;`
+
+```
+$ mysql -u root -p
+$ CREATE USER <username>@localhost IDENTIFIED BY <password>;
+$ GRANT ALL PRIVILEGES ON * . * TO <username>@localhost;
+$ FLUSH PRIVILEGES;
+exit
+```
 
 ### STEP 8: Grant <username> to sudoers
 * usermod -a -G wheel \<username\>
