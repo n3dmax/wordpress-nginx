@@ -28,8 +28,9 @@ add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname
 #### Install important repo
 * `rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`
 * `rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm`
+
 #### Install yum-priorities for repo config
-* yum install yum-priorities
+* `$ yum install yum-priorities`
 
 
 ### STEP 3: install mysql, nginx, php-fpm, memcached
