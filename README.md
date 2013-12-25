@@ -136,11 +136,12 @@ $ service memcached start
 $ cd /etc/nginx
 $ mkdir global
 $ cd global
-$ nano restrictions.conf => http://paste.laravel.com/15PY
-$ nano wordpress.conf => http://paste.laravel.com/1h8p 
-$ nano w3-total-cache.conf => http://paste.laravel.com/15Q6
-$ service nginx restart
 ```
+`$ nano restrictions.conf` =>  [http://paste.laravel.com/15PY](http://paste.laravel.com/15PY)
+`$ nano wordpress.conf` => [http://paste.laravel.com/1h8p](http://paste.laravel.com/1h8p)
+`$ nano w3-total-cache.conf` => [http://paste.laravel.com/15Q6](http://paste.laravel.com/15Q6)
+`$ service nginx restart`
+
 
 #### Now, we edit php-fpm configuration
 
