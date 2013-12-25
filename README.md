@@ -147,11 +147,11 @@ $ cd global
 
 ```
 $ nano /etc/php-fpm.d/www.conf
-$ > listen = /tmp/php-fpm.sock
-$ > user = \<username\>
-$ > group = \<username\>
-$ > php_value[session.save_handler] = memcached
-$ > php_value[session.save_path] = “127.0.0.1:11211"
+.. listen = /tmp/php-fpm.sock
+.. user = \<username\>
+.. group = \<username\>
+.. php_value[session.save_handler] = memcached
+.. php_value[session.save_path] = “127.0.0.1:11211"
 $ service php-fpm restart
 $ service memcached restart
 ```
