@@ -53,6 +53,7 @@ $ mysql_secure_installation
 ```
 
 #### Now, lets install nginx
+
 ```
 $ yum install nginx
 $ chkconfig --levels 235 nginx on
@@ -60,29 +61,38 @@ $ service nginx start
 $ ifconfig eth0 | grep inet | awk '{ print $2 }'
 // Visit your ip address to check on nginx static page
 ```
+
 #### Now, lets install php-fpm
+
 ```
 $ yum install php-fpm php-cli php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-magickwand php-magpierss php-mbstring php-mcrypt php-mssql php-shout php-snmp php-soap php-tidy php-pecl-apc sendmail sendmail-cf
 ```
 
 #### edit /etc/php.ini to set cgi.fix_pathinfo=0;
+
 ```
 $ nano /etc/php.ini
 $ > cgi.fix_pathinfo=0;
+```
 
 #### Edit timezone to your location (Asia/Kuala_Lumpur)
-* > date.timezone = "Asia/Kuala_Lumpur"
-* ln -sf /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
-* chkconfig --levels 235 php-fpm on
-* service php-fpm start
-* chkconfig --levels 235 sendmail on
-* service sendmail start
-* __Now, lets install memcached__
-* yum install memcached php-memcached
-* nano /etc/sysconfig/memcached
-* > OPTIONS="-l 127.0.0.1”
-* chkconfig --levels 235 memcached on
-* service memcached start
+```
+$ > date.timezone = "Asia/Kuala_Lumpur"
+$ ln -sf /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
+$ chkconfig --levels 235 php-fpm on
+$ service php-fpm start
+$ chkconfig --levels 235 sendmail on
+$ service sendmail start
+```
+
+#### Now, lets install memcached
+```
+$ yum install memcached php-memcached
+$ nano /etc/sysconfig/memcached
+$ > OPTIONS="-l 127.0.0.1”
+$ chkconfig --levels 235 memcached on
+$ service memcached start
+```
 
 ### STEP 4: new user for FTP and SSH
 * useradd \<username\>
