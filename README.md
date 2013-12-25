@@ -5,27 +5,29 @@ All files given on http://paste.laravel.com has been put into its respective fil
 
 __Make sure to replace \<username\> or \<website\> with your own__
 
-### STEP 1: update to latest CentOS version
+## STEP 1: update to latest CentOS version
 * ssh root@your-ip-address
 * yum update
 
-###### Check version
+#### Check version
 * cat /etc/redhat-release
 
-###### Setup hostname (skip this for DO)
-* echo "HOSTNAME=\<yourhostname\>" >> /etc/sysconfig/network
-* hostname "\<yourhostname\>"
+#### Setup hostname (skip this for DO)
+* `$ echo "HOSTNAME=\<yourhostname\>" >> /etc/sysconfig/network`
+* `hostname "\<yourhostname\>"`
 
-###### Update /etc/hosts
-* nano /etc/hosts
-* add new line: \<ip address\>    \<yourhostname\>.example.com    \<yourhostname\>
-* add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname\>
+#### Update /etc/hosts (not sure)
+* `nano /etc/hosts`
+```bash
+add new line: \<ip address\>    \<yourhostname\>.example.com    \<yourhostname\>
+add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname\>
+```
 
-### STEP 2: get important Repo
-* __Install important repo__
-* rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-* rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-* __Install yum-priorities for repo config__
+## STEP 2: get important Repo
+#### Install important repo
+* `rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`
+* `rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm`
+#### Install yum-priorities for repo config
 * yum install yum-priorities
 
 
