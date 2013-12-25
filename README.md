@@ -72,13 +72,18 @@ $ yum install php-fpm php-cli php-mysql php-gd php-imap php-ldap php-odbc php-pe
 
 ```
 $ nano /etc/php.ini
-$ > cgi.fix_pathinfo=0;
+```
+and change; 
+```
+.. cgi.fix_pathinfo=0;
+
+// OPTIONAL:-
+// Edit timezone to your location (Asia/Kuala_Lumpur)
+// date.timezone = "Asia/Kuala_Lumpur"
+// $ ln -sf /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 ```
 
-#### Edit timezone to your location (Asia/Kuala_Lumpur)
 ```
-$ > date.timezone = "Asia/Kuala_Lumpur"
-$ ln -sf /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 $ chkconfig --levels 235 php-fpm on
 $ service php-fpm start
 $ chkconfig --levels 235 sendmail on
@@ -94,7 +99,7 @@ $ chkconfig --levels 235 memcached on
 $ service memcached start
 ```
 
-### STEP 4: new user for FTP and SSH
+### (Skipping) STEP 4: new user for FTP and SSH 
 * useradd \<username\>
 * passwd \<username\>
 * cd /srv
@@ -104,33 +109,44 @@ $ service memcached start
 * mkdir \<website\>/html
 * chown -R user:usergroup \<website\>
 
-### STEP 5: configure nginx, php-fpm, php session to memcached
-* __Edit nginx configuration file__
-* nano /etc/nginx/nginx.conf
-* > worker_processes    8;
-* > keeplive_timeout    2;
-* __Easier, follow this format http://paste.laravel.com/15PT__
-* __Here, we set some configuration for php-fpm to run on socket__
-* __Then, we edit the default virtual host configuration__
-* nano /etc/nginx/conf.d/default.conf
-* __Follow this format http://paste.laravel.com/162K__
-* __Now, add those global/… config files__
-* cd /etc/nginx
-* mkdir global
-* cd global
-* nano restrictions.conf => http://paste.laravel.com/15PY
-* nano wordpress.conf => http://paste.laravel.com/162I
-* nano w3-total-cache.conf => http://paste.laravel.com/15Q6
-* service nginx restart
-* __Now, we edit php-fpm configuration__
-* nano /etc/php-fpm.d/www.conf
-* > listen = /tmp/php-fpm.sock
-* > user = \<username\>
-* > group = \<username\>
-* > php_value[session.save_handler] = memcached
-* > php_value[session.save_path] = “127.0.0.1:11211"
-* service php-fpm restart
-* service memcached restart
+### (Skipping) STEP 5: configure nginx, php-fpm, php session to memcached
+#### Edit nginx configuration file
+
+`$ nano /etc/nginx/nginx.conf` and change these;
+```
+.. worker_processes    8;
+.. keeplive_timeout    2;
+```
+#### (Skipping) Easier, follow this format http://paste.laravel.com/15PT
+> Here, we set some configuration for php-fpm to run on socket. Then, we edit the default virtual host configuration
+`$ nano /etc/nginx/conf.d/default.conf`
+
+###### Follow this format http://paste.laravel.com/162K
+
++ Now, add those `global/… config` files
+
+```
+$ cd /etc/nginx
+$ mkdir global
+$ cd global
+$ nano restrictions.conf => http://paste.laravel.com/15PY
+$ nano wordpress.conf => http://paste.laravel.com/1h8p 
+$ nano w3-total-cache.conf => http://paste.laravel.com/15Q6
+$ service nginx restart
+```
+
+#### Now, we edit php-fpm configuration
+
+```
+$ nano /etc/php-fpm.d/www.conf
+$ > listen = /tmp/php-fpm.sock
+$ > user = \<username\>
+$ > group = \<username\>
+$ > php_value[session.save_handler] = memcached
+$ > php_value[session.save_path] = “127.0.0.1:11211"
+$ service php-fpm restart
+$ service memcached restart
+```
 
 ### STEP 6: install FTP (vsftpd)
 * yum install vsftpd
