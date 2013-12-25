@@ -5,19 +5,23 @@ All files given on http://paste.laravel.com has been put into its respective fil
 
 __Make sure to replace \<username\> or \<website\> with your own__
 
-## STEP 1: update to latest CentOS version
-* ssh root@your-ip-address
-* yum update
+## STEP 1: update to latest CentOS version (for DO refer [here](https://www.digitalocean.com/community/articles/initial-server-setup-with-centos-6).)
+```
+$ ssh root@your-ip-address
+$ yum update
+```
 
 #### Check version
-* cat /etc/redhat-release
+`cat /etc/redhat-release`
 
 #### Setup hostname (skipping this for DO)
-* `$ echo "HOSTNAME=\<yourhostname\>" >> /etc/sysconfig/network`
-* `hostname "\<yourhostname\>"`
+```
+$ echo "HOSTNAME=\<yourhostname\>" >> /etc/sysconfig/network
+$ hostname "\<yourhostname\>"
+```
 
 #### Update /etc/hosts (Not sure if this is necessary for DO; skipping for now)
-* `nano /etc/hosts`
++ `$ nano /etc/hosts`
 
 ```
 add new line: \<ip address\>    \<yourhostname\>.example.com    \<yourhostname\>
@@ -40,14 +44,13 @@ add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname
 $ yum install mysql mysql-server
 $ chkconfig --levels 235 mysqld on
 $ service mysqld start
+// Check mysqld server in running
+// Run secure installation (to set password to root)
+$ netstat -tap | grep mysql
+$ mysql_secure_installation
+// Set your SQL password please!
 ```
- 
-####Check mysqld server in running
-* netstat -tap | grep mysql
-* __Run secure installation (to set password to root)__
-* mysql_secure_installation
-* __Set password__
-* __Now, lets install nginx__
+#### Now, lets install nginx
 * yum install nginx
 * chkconfig --levels 235 nginx on
 * service nginx start
