@@ -12,11 +12,11 @@ __Make sure to replace \<username\> or \<website\> with your own__
 #### Check version
 * cat /etc/redhat-release
 
-#### Setup hostname (skip this for DO)
+#### Setup hostname (skipping this for DO)
 * `$ echo "HOSTNAME=\<yourhostname\>" >> /etc/sysconfig/network`
 * `hostname "\<yourhostname\>"`
 
-#### Update /etc/hosts (not sure)
+#### Update /etc/hosts (Not sure if this is necessary for DO; skipping for now)
 * `nano /etc/hosts`
 
 ```
