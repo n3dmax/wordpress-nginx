@@ -18,7 +18,8 @@ __Make sure to replace \<username\> or \<website\> with your own__
 
 #### Update /etc/hosts (not sure)
 * `nano /etc/hosts`
-```bash
+
+```
 add new line: \<ip address\>    \<yourhostname\>.example.com    \<yourhostname\>
 add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname\>
 ```
