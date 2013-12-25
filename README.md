@@ -10,6 +10,7 @@ __Make sure to replace \<username\> or \<website\> with your own__
 * yum update
 * __Check version__
 * cat /etc/redhat-release
+<!-- Typo maybe here? is it setup or Cetup? -->
 * __Cetup hostname__
 * echo "HOSTNAME=\<yourhostname\>" >> /etc/sysconfig/network
 * hostname "\<yourhostname\>"
