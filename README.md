@@ -44,20 +44,25 @@ add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname
 $ yum install mysql mysql-server
 $ chkconfig --levels 235 mysqld on
 $ service mysqld start
-// Check mysqld server in running
-// Run secure installation (to set password to root)
+
+// Check mysqld server in running and run secure installation (to set password to root)
 $ netstat -tap | grep mysql
-$ mysql_secure_installation
+
 // Set your SQL password please!
+$ mysql_secure_installation
 ```
+
 #### Now, lets install nginx
-* yum install nginx
-* chkconfig --levels 235 nginx on
-* service nginx start
-* ifconfig eth0 | grep inet | awk '{ print $2 }'
-* __Visit your ip address to check on nginx static page__
-* __Now, lets install php-fpm__
-* yum install php-fpm php-cli php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-magickwand php-magpierss php-mbstring php-mcrypt php-mssql php-shout php-snmp php-soap php-tidy php-pecl-apc sendmail sendmail-cf
+```
+$ yum install nginx
+$ chkconfig --levels 235 nginx on
+$ service nginx start
+$ ifconfig eth0 | grep inet | awk '{ print $2 }'
+// Visit your ip address to check on nginx static page
+```
+#### Now, lets install php-fpm
+`$ yum install php-fpm php-cli php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-magickwand php-magpierss php-mbstring php-mcrypt php-mssql php-shout php-snmp php-soap php-tidy php-pecl-apc sendmail sendmail-cf`
+
 * __edit /etc/php.ini to set cgi.fix_pathinfo=0;__
 * nano /etc/php.ini
 * > cgi.fix_pathinfo=0;
