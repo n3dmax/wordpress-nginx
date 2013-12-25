@@ -61,12 +61,16 @@ $ ifconfig eth0 | grep inet | awk '{ print $2 }'
 // Visit your ip address to check on nginx static page
 ```
 #### Now, lets install php-fpm
-`$ yum install php-fpm php-cli php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-magickwand php-magpierss php-mbstring php-mcrypt php-mssql php-shout php-snmp php-soap php-tidy php-pecl-apc sendmail sendmail-cf`
+```
+$ yum install php-fpm php-cli php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc php-magickwand php-magpierss php-mbstring php-mcrypt php-mssql php-shout php-snmp php-soap php-tidy php-pecl-apc sendmail sendmail-cf
+```
 
-* __edit /etc/php.ini to set cgi.fix_pathinfo=0;__
-* nano /etc/php.ini
-* > cgi.fix_pathinfo=0;
-* __Edit timezone to your location (Asia/Kuala_Lumpur)__
+#### edit /etc/php.ini to set cgi.fix_pathinfo=0;
+```
+$ nano /etc/php.ini
+$ > cgi.fix_pathinfo=0;
+
+#### Edit timezone to your location (Asia/Kuala_Lumpur)
 * > date.timezone = "Asia/Kuala_Lumpur"
 * ln -sf /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 * chkconfig --levels 235 php-fpm on
