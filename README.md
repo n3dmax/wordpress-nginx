@@ -8,13 +8,15 @@ __Make sure to replace \<username\> or \<website\> with your own__
 ### STEP 1: update to latest CentOS version
 * ssh root@your-ip-address
 * yum update
-* __Check version__
+
+###### Check version
 * cat /etc/redhat-release
-<!-- Typo maybe here? is it setup or Cetup? -->
-* __Cetup hostname__
+
+###### Setup hostname (skip this for DO)
 * echo "HOSTNAME=\<yourhostname\>" >> /etc/sysconfig/network
 * hostname "\<yourhostname\>"
-* __Update /etc/hosts__
+
+###### Update /etc/hosts
 * nano /etc/hosts
 * add new line: \<ip address\>    \<yourhostname\>.example.com    \<yourhostname\>
 * add new line: \<ipv6 address\>    \<yourhostname\>.example.com    \<yourhostname\>
