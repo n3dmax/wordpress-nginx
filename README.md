@@ -1,9 +1,15 @@
 # Wordpress on Nginx + PHP-FPM
-This is my personal steps in preparing my VPS/Dedicated server for running WordPress installation. Due to the nature of Nginx, .htaccess is not supported. We will look into configuration to imimate the how .htaccess normally works.
 
-All files given on http://paste.laravel.com has been put into its respective files in __etc__ folder above.
+This is @abdusfauzi personal steps in preparing my VPS/Dedicated server for running WordPress installation. Due to the nature of Nginx, .htaccess is not supported. We will look into configuration to imimate the how .htaccess normally works.
 
-__Make sure to replace \<username\> or \<website\> with your own__
+All files given on http://paste.laravel.com has been put into its respective files in `etc` folder above.
+
+*Make sure to replace <username> or <website> with your own*
+
+## Pre-configuration for DO
+
++ `yum install nano`
++ [Install git](https://www.digitalocean.com/community/articles/how-to-install-git-on-a-centos-6-4-vps)
 
 ## STEP 1: update to latest CentOS version (for DO refer [here](https://www.digitalocean.com/community/articles/initial-server-setup-with-centos-6).)
 ```
